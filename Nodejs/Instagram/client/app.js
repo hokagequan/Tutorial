@@ -3,8 +3,8 @@
 *
 * Description
 */
-angular.module('Instagram', ['ngRoute', 'ngMessages'])
-.config(function($routeProvider) {
+angular.module('Instagram', ['ngRoute', 'ngMessages', 'satellizer'])
+.config(function($routeProvider, $authProvider) {
 	$routeProvider
 	.when('/', {
 		templateUrl: 'views/home.html',
