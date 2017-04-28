@@ -1,0 +1,23 @@
+{
+  "name": "ipadownload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d lib",
+    "prestart": "babel src -d lib",
+    "start": "node lib/server.js"
+  },
+  "dependencies": {
+    "body-parser": "latest",
+    "express": "latest"
+  },
+  "devDependencies": {
+    "babel-cli": "latest",
+    "babel-preset-env": "latest",
+    "babel-preset-es2015": "^6.24.1"
+  },
+  "author": "",
+  "license": "ISC"
+}
