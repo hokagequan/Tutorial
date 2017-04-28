@@ -31,8 +31,8 @@ class Footer extends React.Component {
     					<img src={'http://image.eveonline.com/Character/' + character.characterId + '_128.jpg'} className="thumb-md"/>
     				</Link>
     			</li>
-    		)
-    	}
+    		);
+    	});
     	return (
     		<footer>
     			<div className="container">
