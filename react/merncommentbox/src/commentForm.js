@@ -27,12 +27,17 @@ export default class CommentForm extends React.Component {
   }
 
   handleSubmit(e){
-  	
+  	e.preventDefault();
+  	console.log(`${this.state.author} said "${this.state.text}"`);
   }
 
   render() {
     return (
-      <div></div>
+      <form style={style.commentFOrm} onSubmit={this.handleSubmit}>
+      	<input type="text" placeholder="Your name..." style={style.commentFormAuthor} value={this.state.author} conChange={this.handleAuthorChange}/>
+      	<input type="text" placeholder="Say something..." style={style.commentFormText} value={this.state.text} onChange={this.handleTextChange}/>
+      	<input type="submit" style={style.commentFormPost} value="Post"/>
+      </form>
     );
   }
 }
