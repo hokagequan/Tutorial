@@ -13,6 +13,14 @@ export function allComments() {
 	return Comment.find()
 }
 
+export function addComment (author, text) {
+	let comment = new Comment();
+	comment.author = author;
+	comment.text = text;
+
+	return comment.save();
+}
+
 export default Comment;
 
 // var mongoose = require('mongoose');
