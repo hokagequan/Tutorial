@@ -3,10 +3,6 @@ import style from "./style";
 import marked from "marked";
 
 export default class Comment extends React.Component {
-  static propTypes = {
-    name: React.PropTypes.string,
-  };
-
   constructor(props) {
     super(props);
   }

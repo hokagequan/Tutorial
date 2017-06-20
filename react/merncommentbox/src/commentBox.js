@@ -5,10 +5,6 @@ import DATA from "./data";
 import style from "./style";
 
 export default class CommentBox extends React.Component {
-  static propTypes = {
-    name: React.PropTypes.string,
-  };
-
   constructor(props) {
     super(props);
     this.state = {data: []};

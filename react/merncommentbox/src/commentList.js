@@ -1,5 +1,5 @@
 import React from "react";
-import Comment from "./Comment";
+import Comment from "./comment";
 import style from "./style";
 
 export default class commentList extends React.Component {
@@ -20,7 +20,7 @@ export default class commentList extends React.Component {
   			);
   	})
     return (
-      <div style={style.commentList>{commentNodes}</div>
+      <div style={style.commentList}>{commentNodes}</div>
     );
   }
 }

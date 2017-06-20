@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './style'
 
 export default class CommentForm extends React.Component {
   static propTypes = {
@@ -33,7 +34,7 @@ export default class CommentForm extends React.Component {
 
   render() {
     return (
-      <form style={style.commentFOrm} onSubmit={this.handleSubmit}>
+      <form style={style.commentForm} onSubmit={this.handleSubmit}>
       	<input type="text" placeholder="Your name..." style={style.commentFormAuthor} value={this.state.author} conChange={this.handleAuthorChange}/>
       	<input type="text" placeholder="Say something..." style={style.commentFormText} value={this.state.text} onChange={this.handleTextChange}/>
       	<input type="submit" style={style.commentFormPost} value="Post"/>
