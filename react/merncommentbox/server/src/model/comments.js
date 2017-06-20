@@ -9,6 +9,10 @@ let CommentsSchema = new mongoose.Schema({
 
 let Comment = mongoose.model('Comment', CommentsSchema);
 
+export function allComments() {
+	return Comment.find()
+}
+
 export default Comment;
 
 // var mongoose = require('mongoose');

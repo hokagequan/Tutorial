@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+exports.allComments = allComments;
 
 var _mongoose = require('mongoose');
 
@@ -16,6 +17,10 @@ var CommentsSchema = new _mongoose2.default.Schema({
 });
 
 var Comment = _mongoose2.default.model('Comment', CommentsSchema);
+
+function allComments() {
+	return Comment.find();
+}
 
 exports.default = Comment;
 

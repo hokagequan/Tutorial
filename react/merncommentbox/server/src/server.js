@@ -1,14 +1,13 @@
 'use strict'
 
-var express = require("express");
-var mongoose = require("mongoose");
-var bodyParser = require("body-parser");
-var Comment = require('./model/comments');
+import express from "express";
+import bodyParser from "body-parser";
+import Comment from "./model/comments";
+import controller from "./controllers";
+import mongoose from "mongoose";
 
-var app = express();
-var router = express.Router();
-
-var port = process.env.API_PORT || 3001;
+let app = express();
+let port = process.env.API_PORT || 3001;
 
 mongoose.connect(`mongodb://mytest:123456@ds129462.mlab.com:29462/mydb`);
 
@@ -25,35 +24,31 @@ app.use(function (req, res, next) {
  	next();
 });
 
-router.get('/', function (req, res) {
-	res.json({message: 'API initialized'});
-});
+app.use(controller);
 
-router.route('/comments')
-.get(function(req, res) {
-	console.log("****Start get comments!");
-	Comment.find(function(err, comments){
-		if (err) {
-			res.send(err);
-		}
+// router.route('/comments')
+// .get(function(req, res) {
+// 	console.log("****Start get comments!");
+// 	Comment.find(function(err, comments){
+// 		if (err) {
+// 			res.send(err);
+// 		}
 
-		res.json(comments);
-	});
-})
-.post(function(req, res) {
-	let comment = new Comment();
-	comment.author = req.body.author;
-	comment.text = req.body.text;
-	comment.save(function(err){
-		if (err) {
-			res.send(err);
-		}
+// 		res.json(comments);
+// 	});
+// })
+// .post(function(req, res) {
+// 	let comment = new Comment();
+// 	comment.author = req.body.author;
+// 	comment.text = req.body.text;
+// 	comment.save(function(err){
+// 		if (err) {
+// 			res.send(err);
+// 		}
 
-		res.json({message: 'Comment successfully added!'});
-	});
-});
-
-app.use('/api', router);
+// 		res.json({message: 'Comment successfully added!'});
+// 	});
+// });
 
 app.listen(port, function () {
 	console.log(`api running on port ${port}`);

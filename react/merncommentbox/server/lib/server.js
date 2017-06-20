@@ -1,58 +1,71 @@
 'use strict';
 
-var express = require("express");
-var mongoose = require("mongoose");
-var bodyParser = require("body-parser");
-var Comment = require('./model/comments');
+var _express = require("express");
 
-var app = express();
-var router = express.Router();
+var _express2 = _interopRequireDefault(_express);
 
+var _bodyParser = require("body-parser");
+
+var _bodyParser2 = _interopRequireDefault(_bodyParser);
+
+var _comments = require("./model/comments");
+
+var _comments2 = _interopRequireDefault(_comments);
+
+var _controllers = require("./controllers");
+
+var _controllers2 = _interopRequireDefault(_controllers);
+
+var _mongoose = require("mongoose");
+
+var _mongoose2 = _interopRequireDefault(_mongoose);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var app = (0, _express2.default)();
 var port = process.env.API_PORT || 3001;
 
-mongoose.connect("mongodb://mytest:123456@ds129462.mlab.com:29462/mydb");
+_mongoose2.default.connect("mongodb://mytest:123456@ds129462.mlab.com:29462/mydb");
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(_bodyParser2.default.urlencoded({ extended: true }));
+app.use(_bodyParser2.default.json());
 
 app.use(function (req, res, next) {
-	res.setHeader('Access-Control-Allow-Origin', '*');
-	res.setHeader('Access-Control-Allow-Credentials', 'true');
-	res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
-	res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
-	//and remove cacheing so we get the most recent comments
-	res.setHeader('Cache-Control', 'no-cache');
-	next();
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
+  //and remove cacheing so we get the most recent comments
+  res.setHeader('Cache-Control', 'no-cache');
+  next();
 });
 
-router.get('/', function (req, res) {
-	res.json({ message: 'API initialized' });
-});
+app.use(_controllers2.default);
 
-router.route('/comments').get(function (req, res) {
-	console.log("****Start get comments!");
-	Comment.find(function (err, comments) {
-		if (err) {
-			res.send(err);
-		}
+// router.route('/comments')
+// .get(function(req, res) {
+// 	console.log("****Start get comments!");
+// 	Comment.find(function(err, comments){
+// 		if (err) {
+// 			res.send(err);
+// 		}
 
-		res.json(comments);
-	});
-}).post(function (req, res) {
-	var comment = new Comment();
-	comment.author = req.body.author;
-	comment.text = req.body.text;
-	comment.save(function (err) {
-		if (err) {
-			res.send(err);
-		}
+// 		res.json(comments);
+// 	});
+// })
+// .post(function(req, res) {
+// 	let comment = new Comment();
+// 	comment.author = req.body.author;
+// 	comment.text = req.body.text;
+// 	comment.save(function(err){
+// 		if (err) {
+// 			res.send(err);
+// 		}
 
-		res.json({ message: 'Comment successfully added!' });
-	});
-});
-
-app.use('/api', router);
+// 		res.json({message: 'Comment successfully added!'});
+// 	});
+// });
 
 app.listen(port, function () {
-	console.log("api running on port " + port);
+  console.log("api running on port " + port);
 });
