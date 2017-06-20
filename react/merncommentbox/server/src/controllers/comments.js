@@ -9,9 +9,9 @@ router.route('/').get((req, res) => {
 	.then((comments) => res.json(comments))
 	.catch((err) => res.send(err));
 }).post((req, res) => {
-	console.log(`Add comment author: ${req.author} text: ${req.text}`);
-	addComment(req.author, req.text)
-	.then(() => res.send("Add Success"))
+	console.log(`Add comment author: ${req.body.author} text: ${req.body.text}`);
+	addComment(req.body.author, req.body.text)
+	.then(() => res.send(req.body))
 	.catch((err) => res.send(err));
 });
 

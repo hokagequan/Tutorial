@@ -18,9 +18,9 @@ router.route('/').get(function (req, res) {
 		return res.send(err);
 	});
 }).post(function (req, res) {
-	console.log("Add comment author: " + req.author + " text: " + req.text);
-	(0, _comments.addComment)(req.author, req.text).then(function () {
-		return res.send("Add Success");
+	console.log("Add comment author: " + req.body.author + " text: " + req.body.text);
+	(0, _comments.addComment)(req.body.author, req.body.text).then(function () {
+		return res.send(req.body);
 	}).catch(function (err) {
 		return res.send(err);
 	});
