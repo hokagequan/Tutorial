@@ -3,10 +3,6 @@ import Comment from "./comment";
 import style from "./style";
 
 export default class commentList extends React.Component {
-  static propTypes = {
-    name: React.PropTypes.string,
-  };
-
   constructor(props) {
     super(props);
   }
@@ -14,7 +10,7 @@ export default class commentList extends React.Component {
   render() {
   	let commentNodes = this.props.data.map(function(comment) {
   		return (
-  			<Comment author={comment.author} key={comment.id}>
+  			<Comment author={comment.author} key={comment['_id']}>
   				{comment.text}
   			</Comment>
   			);
