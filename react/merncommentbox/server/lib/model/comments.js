@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.allComments = allComments;
 exports.addComment = addComment;
+exports.updateComment = updateComment;
+exports.deleteComment = deleteComment;
 
 var _mongoose = require('mongoose');
 
@@ -29,6 +31,21 @@ function addComment(author, text) {
 	comment.text = text;
 
 	return comment.save();
+}
+
+function updateComment(id, author, text) {
+	return Comment.findById(id).then(function (comment) {
+		author ? comment.author = author : null;
+		text ? comment.text = text : null;
+
+		return comment;
+	}).then(function (comment) {
+		return comment.save();
+	});
+}
+
+function deleteComment(id) {
+	return Comment.remove({ _id: id });
 }
 
 exports.default = Comment;

@@ -42,30 +42,6 @@ app.use(function (req, res, next) {
 
 app.use(_controllers2.default);
 
-// router.route('/comments')
-// .get(function(req, res) {
-// 	console.log("****Start get comments!");
-// 	Comment.find(function(err, comments){
-// 		if (err) {
-// 			res.send(err);
-// 		}
-
-// 		res.json(comments);
-// 	});
-// })
-// .post(function(req, res) {
-// 	let comment = new Comment();
-// 	comment.author = req.body.author;
-// 	comment.text = req.body.text;
-// 	comment.save(function(err){
-// 		if (err) {
-// 			res.send(err);
-// 		}
-
-// 		res.json({message: 'Comment successfully added!'});
-// 	});
-// });
-
 app.listen(port, function () {
   console.log("api running on port " + port);
 });

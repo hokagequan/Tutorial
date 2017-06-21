@@ -21,6 +21,23 @@ export function addComment (author, text) {
 	return comment.save();
 }
 
+export function updateComment(id, author, text) {
+	return Comment.findById(id)
+			.then((comment) => {
+				author ? comment.author = author : null;
+				text ? comment.text = text : null;
+
+				return comment;
+			})
+			.then((comment) => {
+				return comment.save();
+			})
+}
+
+export function deleteComment(id) {
+	return Comment.remove({_id: id});
+}
+
 export default Comment;
 
 // var mongoose = require('mongoose');
