@@ -8,12 +8,10 @@ export default class commentList extends React.Component {
   }
 
   render() {
-  	let commentNodes = this.props.data.map(function(comment) {
-  		return (
-  			<Comment author={comment.author} key={comment['_id']} uniqueID={comment['_id']}>
-  				{comment.text}
-  			</Comment>
-  			);
+  	let commentNodes = this.props.data.map((comment) => {
+  		return (<Comment author={comment.author} key={comment['_id']} uniqueID={comment['_id']} onCommentUpdate={this.props.onCommentUpdate} onCommentDelete={this.props.onCommentDelete}>
+  			{comment.text}
+  		</Comment>);
   	});
     return (
       <div style={style.commentList}>{commentNodes}</div>
