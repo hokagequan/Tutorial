@@ -10,13 +10,29 @@
     "socket.io": "latest"
   },
   "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-cli": "latest",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-preset-env": "latest",
     "react-scripts": "1.0.7",
     "nodemon": "latest"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-2"
+    ]
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build-server": "babel server/src --out-dir server/lib",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start-dev": "nf start -p 3000"
   }
 }
