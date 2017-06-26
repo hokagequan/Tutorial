@@ -5,11 +5,11 @@ import marked from "marked";
 export default class Comment extends React.Component {
   constructor(props) {
     super(props);
-    this.setState({
+    this.state = {
     	toBeUpdated: false,
     	author: '',
     	text: ''
-    });
+    };
 
     this.updateComment = this.updateComment.bind(this);
     this.deleteComment = this.deleteComment.bind(this);
@@ -73,7 +73,7 @@ export default class Comment extends React.Component {
       	<span dangerouslySetInnerHTML={this.rawMarkup()}></span>
       	<a href="#" style={style.updateLink} onClick={this.updateComment}>update</a>
       	<a href="#" style={style.deleteLink} onClick={this.deleteComment}>delete</a>
-      	{(this.toBeUpdated) ? 
+      	{(this.state.toBeUpdated) ? 
       		(<form action="" onSubmit={this.handleCommentUpdate}>
       			<input type="text" 
       			placeholder="Update name..." 
