@@ -8,7 +8,7 @@ import http from "http";
 import socket from "socket.io";
 import config from "../../config";
 import routes from "./routes";
-import streamHandler from "../../src/utils/streamHandler";
+import {streamHandler} from "../../src/utils/streamHandler";
 
 let app = express();
 let port = process.env.PORT || 8080;
@@ -31,6 +31,6 @@ let server = http.createServer(app).listen(port, () => {
 
 let io = socket.listen(server);
 
-// twit.stream('statuses/filter', {track: 'scotch_io, #scotchio'}, (stream) => {
-// 	streamHandler(stream.io);
-// });
+twit.stream('statuses/filter', {track: 'scotch_io, #scotchio'}, (stream) => {
+	streamHandler(stream, io);
+});
