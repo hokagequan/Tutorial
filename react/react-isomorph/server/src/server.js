@@ -6,9 +6,9 @@ import exphbs from "express-handlebars";
 import twitter from "ntwitter";
 import http from "http";
 import socket from "socket.io";
-import config from "../config";
+import config from "../../config";
 import routes from "./routes";
-import streamHandler from "../src/utils/streamHandler";
+import streamHandler from "../../src/utils/streamHandler";
 
 let app = express();
 let port = process.env.PORT || 8080;
@@ -18,9 +18,9 @@ app.set('view engine', 'handlebars');
 
 app.disable('etag');
 
-mongoose.connect(`mongodb://mytest:123456@ds129462.mlab.com:29462/mydb`);
+mongoose.connect(`mongodb://mytest:123456@ds129462.mlab.com:29462/mydb`, {useMongoClient: true});
 
-let twit = new twiiter(config.twitter);
+let twit = new twitter(config.twitter);
 
 app.get('/', routes);
 app.use('/', express.static(__dirname + "/plublic/"));

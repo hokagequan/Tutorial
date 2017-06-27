@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _express = require("express");
 
@@ -24,7 +24,7 @@ var _socket = require("socket.io");
 
 var _socket2 = _interopRequireDefault(_socket);
 
-var _config = require("../config");
+var _config = require("../../config");
 
 var _config2 = _interopRequireDefault(_config);
 
@@ -32,7 +32,7 @@ var _routes = require("./routes");
 
 var _routes2 = _interopRequireDefault(_routes);
 
-var _streamHandler = require("../src/utils/streamHandler");
+var _streamHandler = require("../../src/utils/streamHandler");
 
 var _streamHandler2 = _interopRequireDefault(_streamHandler);
 
@@ -48,7 +48,7 @@ app.disable('etag');
 
 _mongoose2.default.connect("mongodb://mytest:123456@ds129462.mlab.com:29462/mydb");
 
-var twit = new twiiter(_config2.default.twitter);
+var twit = new _ntwitter2.default(_config2.default.twitter);
 
 app.get('/', _routes2.default);
 app.use('/', _express2.default.static(__dirname + "/plublic/"));
