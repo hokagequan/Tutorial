@@ -18,7 +18,7 @@ app.set('view engine', 'handlebars');
 
 app.disable('etag');
 
-mongoose.connect(`mongodb://mytest:123456@ds129462.mlab.com:29462/mydb`, {useMongoClient: true});
+mongoose.connect(`mongodb://localhost:27017`, {useMongoClient: true});
 
 let twit = new twitter(config.twitter);
 

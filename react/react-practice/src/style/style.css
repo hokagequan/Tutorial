@@ -1,0 +1,36 @@
+.navigation {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background-color: rgb(51, 51, 51);
+  line-height: 30px;
+  overflow: hidden;
+}
+
+.naviItem {
+  display: inline;
+  list-style-type: none;
+  float: left;
+  padding: 16px;
+  color: DarkGray;
+  font-size: 16;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+.naviItem:hover {
+  color: rgb(210, 210, 210);
+}
+
+.naviHeaderImage {
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
