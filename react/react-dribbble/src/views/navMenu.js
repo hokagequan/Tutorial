@@ -1,5 +1,6 @@
 import React from 'react';
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem, FormControl, FormGroup} from 'react-bootstrap';
+import NavMenuItem from './navMenuItem';
 import '../css/style.css';
 
 export default class NavMenu extends React.Component {
@@ -19,7 +20,7 @@ export default class NavMenu extends React.Component {
 			  {
 			  	this.props.menuItems.map((item) => {
 			  		return (
-			  			<NavItem href={item.url}>{item.text}</NavItem>
+			  			<NavMenuItem link={item.url} title={item.text}></NavMenuItem>
 			  		);
 			  	})	
 			  }
@@ -29,8 +30,8 @@ export default class NavMenu extends React.Component {
 					<FormControl type="text" placeholder="Search"></FormControl>
   				</FormGroup>
 	  		</Navbar.Form>
-	  		<Nav pullRight>
-	  			<NavItem>Sign up</NavItem>
+	  			<Nav pullRight>
+	  				<NavItem>Sign up</NavItem>
 	  			<NavItem>Sign in</NavItem>
 	  		</Nav>
 		</Navbar>
