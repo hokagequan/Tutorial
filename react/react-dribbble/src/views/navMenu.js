@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
+import {Navbar, Nav, NavItem, NavDropdown, MenuItem, FormControl, FormGroup} from 'react-bootstrap';
 import '../css/style.css';
 
 export default class NavMenu extends React.Component {
@@ -23,6 +23,15 @@ export default class NavMenu extends React.Component {
 			  		);
 			  	})	
 			  }
+	  		</Nav>
+	  		<Navbar.Form pullRight>
+  				<FormGroup>
+					<FormControl type="text" placeholder="Search"></FormControl>
+  				</FormGroup>
+	  		</Navbar.Form>
+	  		<Nav pullRight>
+	  			<NavItem>Sign up</NavItem>
+	  			<NavItem>Sign in</NavItem>
 	  		</Nav>
 		</Navbar>
     );
