@@ -1,16 +1,14 @@
 {
-  "name": "react-practice",
+  "name": "react-dribbble",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-router": "latest",
-    "react-router-dom": "latest",
     "react-bootstrap": "latest"
   },
   "devDependencies": {
-    "react-scripts": "1.0.7"
+    "react-scripts": "1.0.10"
   },
   "scripts": {
     "start": "react-scripts start",
