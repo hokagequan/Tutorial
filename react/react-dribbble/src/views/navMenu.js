@@ -20,7 +20,7 @@ export default class NavMenu extends React.Component {
 			  {
 			  	this.props.menuItems.map((item) => {
 			  		return (
-			  			<NavMenuItem link={item.url} title={item.text}></NavMenuItem>
+			  			<NavMenuItem link={item.url} title={item.text} subItems={item.subItems}></NavMenuItem>
 			  		);
 			  	})	
 			  }

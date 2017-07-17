@@ -5,7 +5,8 @@
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-bootstrap": "latest"
+    "react-bootstrap": "latest",
+    "bootstrap": "latest"
   },
   "devDependencies": {
     "react-scripts": "1.0.10"
