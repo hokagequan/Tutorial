@@ -1,19 +1,35 @@
 import React from 'react';
-import {NavItem, Dropdown, MenuItem} from 'react-bootstrap';
+import {NavItem, Dropdown, MenuItem, NavDropdown} from 'react-bootstrap';
 
 export default class NavMenuItem extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {isOpen: false}
+  }
+
+  handleOpen = () => {
+  	this.setState({
+  		isOpen: true 
+  	});
+  }
+
+  handleClose = () => {
+  	this.setState({
+  		isOpen: false 
+  	});
   }
 
   render() {
     return (
-      	<NavItem href={this.props.link}>
-      	{this.props.title}
-      	<Dropdown>
-      		<MenuItem>item 1</MenuItem>
-      	</Dropdown>
-      	</NavItem>
+      	<NavDropdown
+      	  onMouseEnter={this.handleOpen}
+      	  onMouseLeave={this.handleClose}
+      	  open={this.state.isOpen} 
+      	  title={this.props.title} 
+      	  noCaret 
+      	  id={this.props.title}>
+      	</NavDropdown>
     );
   }
 }

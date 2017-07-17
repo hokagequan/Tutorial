@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NavMenu from './views/navMenu';
+import {Button} from 'react-bootstrap';
 
 let menuData = [
   {
@@ -20,7 +21,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavMenu menuItems={menuData}></NavMenu>
+          <NavMenu menuItems={menuData}></NavMenu>
+          <Button>Button</Button>
       </div>
     );
   }

@@ -10,7 +10,7 @@ export default class NavMenu extends React.Component {
 
   render() {
     return (
-		<Navbar inverse fixedTop collapseOnSelect fluid>
+		<Navbar inverse collapseOnSelect fluid staticTop>
 		    <Navbar.Header>
 		    	<Navbar.Brand>
 		    		<a href="/">Dribbble</a>
