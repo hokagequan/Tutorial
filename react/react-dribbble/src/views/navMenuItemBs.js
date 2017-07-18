@@ -26,7 +26,7 @@ export default class NavMenuItemBs extends React.Component {
 					let items =
 					section.map((item, j) => {
 						return (
-							<li><a href={item.url}>{item.text}</a></li>
+							<li><a className="nav-submenu-item" href={item.url}>{item.text}</a></li>
 						);
 					})
 
@@ -35,7 +35,7 @@ export default class NavMenuItemBs extends React.Component {
 					}
 
 					items.push(
-						<li className="divider" role="separator"></li>
+						<li className="divider"></li>
 					);
 
 					return items;
