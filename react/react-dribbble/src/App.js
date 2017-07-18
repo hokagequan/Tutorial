@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import NavMenu from './views/navMenu';
+import {BrowserRouter, Route} from "react-router-dom";
 import NavMenuBs from './views/navMenuBs';
-import {Button} from 'react-bootstrap';
+import ShotsPage from './views/shotsPage';
 import './css/style.css';
 
 let menuData = [
@@ -90,7 +90,9 @@ class App extends Component {
     return (
       <div>
           <NavMenuBs menuItems={menuData}></NavMenuBs>
-          <Button className="subMenu">Button</Button>
+          <BrowserRouter>
+            <Route path="/" component={ShotsPage}></Route>
+          </BrowserRouter>
       </div>
     );
   }
