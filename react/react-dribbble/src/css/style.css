@@ -1,11 +1,3 @@
-.navigation {
-  padding: 0;
-  height: 60px;
-  vertical-align: middle;
-  background: rgb(51, 51, 51);
-}
-
-.subMenu {
-	background-color: black;
-	color: red;
+.dropdown:hover .dropdown-menu {
+  display: block;
 }
