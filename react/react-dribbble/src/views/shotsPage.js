@@ -105,7 +105,9 @@ export class ShotsFilterHeader extends React.Component {
       				</li>
       			</ul>
       			<ul className="nav navbar-nav pull-right">
-      				<img alt="Brand" src="..." />
+      				<li>
+      					<a><span className="glyphicon glyphicon-th-large"></span></a>
+      				</li>
       			</ul>
       		</div>
       	</nav>
