@@ -133,11 +133,11 @@ export class ShotsContent extends React.Component {
 
   render() {
     return (
-      <div className="row">
+      <div className="row cardContainer">
       {
       	this.props.shotsData.map((data) => {
       		return (
-				<div className="col-md-2 col-sm-4 col-xs-4">
+				<div className="col-md-2 col-sm-4 col-xs-4 cardItemSpacing">
 				  <ShotsItem item={data} />
 				</div>
       		);
