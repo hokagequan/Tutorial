@@ -20,13 +20,13 @@ export default class NavMenuItemBs extends React.Component {
     		  aria-expanded="false">
     		  {this.props.title}
     		</a>
-    		<ul className="dropdown-menu">
+    		<ul className="dropdown-menu nav-dropdown">
 			{
 				this.props.subItems.map((section, i) => {
 					let items =
 					section.map((item, j) => {
 						return (
-							<li><a className="nav-submenu-item" href={item.url}>{item.text}</a></li>
+							<li><a href={item.url}>{item.text}</a></li>
 						);
 					})
 

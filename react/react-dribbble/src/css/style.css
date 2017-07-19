@@ -2,20 +2,20 @@
   display: block;
 }
 
-.navbar-nav > li > .dropdown-menu {
+.navbar-nav > li > .dropdown-menu.nav-dropdown {
   background-color: black;
 }
 
-.dropdown-menu > li > a {
+.dropdown-menu.nav-dropdown > li > a {
 	color: dimgray;
 }
 
-.dropdown-menu > li > a:hover {
+.dropdown-menu.nav-dropdown > li > a:hover {
 	color: white;
 	background-color: dimgray;
 	background-image: none;
 }
 
-.dropdown-menu .divider {
+.dropdown-menu.nav-dropdown .divider {
 	background-color: dimgray;
 }

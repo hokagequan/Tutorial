@@ -2,4 +2,31 @@
   position: absolute;
   left: 50%;
   transform: translatex(-50%);
+  z-index: 1000;
+}
+
+.cardStateList {
+  padding-right: 8px;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.cardStateList > li {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.cardStateList > li > p {
+  color: dimgray;
+  font-size: 6;
+}
+
+.cardState {
+  text-align: right;
+}
+
+.thumbnail > img {
+	padding-top: 8px;
+	padding-left: 8px;
+	padding-right: 8px;
 }
