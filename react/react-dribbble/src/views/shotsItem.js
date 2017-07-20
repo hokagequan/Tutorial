@@ -9,7 +9,7 @@ export default class ShotsItem extends React.Component {
     return (
       <div>
       	<div className="thumbnail">
-		    <img src={this.props.item.imageURL} alt="缩略图" />
+      		<img src={this.props.item.imageURL} alt="缩略图"></img>
 		    <div className="cardState">
 		      <ul className="cardStateList">
 		        <li>
