@@ -1,42 +1,11 @@
 import React from 'react';
 import signals from 'signals';
+import axios from 'axios';
 import ShotsItem from './shotsItem';
+import {shotsURL} from '../serverMethod';
 import '../css/shots.css';
 
 const filterSignal = new signals.Signal()
-
-let tempData = [
-	{
-		image: "http://image5.tuku.cn/wallpaper/Space%20Wallpapers/1393_2560x1600.jpg",
-	},
-	{
-		image: "http://image5.tuku.cn/wallpaper/Space%20Wallpapers/1393_2560x1600.jpg",
-	},
-	{
-		image: "http://image5.tuku.cn/wallpaper/Space%20Wallpapers/1393_2560x1600.jpg",
-	},
-	{
-		image: "http://image5.tuku.cn/wallpaper/Space%20Wallpapers/1393_2560x1600.jpg",
-	},
-	{
-		image: "http://image5.tuku.cn/wallpaper/Space%20Wallpapers/1393_2560x1600.jpg",
-	},
-	{
-		image: "http://image5.tuku.cn/wallpaper/Space%20Wallpapers/1393_2560x1600.jpg",
-	},
-	{
-		image: "http://image5.tuku.cn/wallpaper/Space%20Wallpapers/1393_2560x1600.jpg",
-	},
-	{
-		image: "http://image5.tuku.cn/wallpaper/Space%20Wallpapers/1393_2560x1600.jpg",
-	},
-	{
-		image: "http://image5.tuku.cn/wallpaper/Space%20Wallpapers/1393_2560x1600.jpg",
-	},
-	{
-		image: "http://image5.tuku.cn/wallpaper/Space%20Wallpapers/1393_2560x1600.jpg",
-	},
-]
 
 export default class ShotsPage extends React.Component {
   constructor(props) {
@@ -47,8 +16,18 @@ export default class ShotsPage extends React.Component {
   }
 
   componentDidMount() {
-  	this.setState({
-  		shotsData: tempData 
+  	this.loadAllShots();
+  }
+
+  loadAllShots() {
+  	axios.get(shotsURL)
+  	.then((res) => {
+  		this.setState({
+  			shotsData: res.data 
+  		});
+  	})
+  	.catch((err) => {
+  		console.log(err);
   	});
   }
 

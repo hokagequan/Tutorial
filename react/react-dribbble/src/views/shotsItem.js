@@ -9,31 +9,31 @@ export default class ShotsItem extends React.Component {
     return (
       <div>
       	<div className="thumbnail">
-		    <img src={this.props.item.image} alt="缩略图" />
+		    <img src={this.props.item.imageURL} alt="缩略图" />
 		    <div className="cardState">
 		      <ul className="cardStateList">
 		        <li>
 		          <p>
 		            <span className="glyphicon glyphicon-eye-open"></span>
-		      	    1234
+		      	    {this.props.item.viewed}
 		          </p>
 		        </li>
 		        <li>
 		          <p>
 		            <span className="glyphicon glyphicon-comment"></span>
-		      	    1234
+		      	    {this.props.item.comments}
 		          </p>
 		        </li>
 		        <li className="cardLike">
 		          <p>
 		            <span className="glyphicon glyphicon-heart"></span>
-		      	    1234
+		      	    {this.props.item.liked}
 		          </p>
 		        </li>
 		      </ul>
 		    </div>
       	</div>
-      	<p className="cardTitle">kk</p>
+      	<p className="cardTitle">{this.props.item.userName}</p>
       </div>
     );
   }
