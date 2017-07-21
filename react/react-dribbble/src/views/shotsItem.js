@@ -24,8 +24,8 @@ export default class ShotsItem extends React.Component {
       <div>
       	<div className="thumbnail">
       		<img src={this.props.item.imageURL} alt="缩略图" onLoad={this.setOverlaySize}></img>
-      		<div className="cartItemOverlay" style={{width: this.state.overlayW, height: this.state.overlayH, top: 13}}>
-      		</div>
+      		<ShotItemOverlay style={{width: this.state.overlayW, height: this.state.overlayH, top: 13}}>
+      		</ShotItemOverlay>
 		    <div className="cardState">
 		      <ul className="cardStateList">
 		        <li>
@@ -54,3 +54,18 @@ export default class ShotsItem extends React.Component {
     );
   }
 }
+
+class ShotItemOverlay extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div className="cartItemOverlay">
+        
+      </div>
+    );
+  }
+}
+
