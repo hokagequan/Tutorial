@@ -3,13 +3,29 @@ import React from 'react';
 export default class ShotsItem extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+    	overlayW: null,
+    	overlayH: null
+    }
+
+    this.setOverlaySize = this.setOverlaySize.bind(this);
+  }
+
+  setOverlaySize({target: image}) {
+  	this.setState({
+  		overlayW: image.width,
+  		overlayH: image.height
+  	});
   }
 
   render() {
     return (
       <div>
       	<div className="thumbnail">
-      		<img src={this.props.item.imageURL} alt="缩略图"></img>
+      		<img src={this.props.item.imageURL} alt="缩略图" onLoad={this.setOverlaySize}></img>
+      		<div className="cartItemOverlay" style={{width: this.state.overlayW, height: this.state.overlayH, top: 13}}>
+      		</div>
 		    <div className="cardState">
 		      <ul className="cardStateList">
 		        <li>
