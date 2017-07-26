@@ -13,6 +13,7 @@ export default class ShotsItem extends React.Component {
   }
 
   setOverlaySize({target: image}) {
+  	console.log(`size:  ${image.width}x${image.height}`);
   	this.setState({
   		overlayW: image.width,
   		overlayH: image.height
@@ -24,7 +25,7 @@ export default class ShotsItem extends React.Component {
       <div>
       	<div className="thumbnail">
       		<img src={this.props.item.imageURL} alt="缩略图" onLoad={this.setOverlaySize}></img>
-      		<ShotItemOverlay style={{width: this.state.overlayW, height: this.state.overlayH, top: 13}}>
+      		<ShotItemOverlay style={{width: this.state.overlayW, height: this.state.overlayH}}>
       		</ShotItemOverlay>
 		    <div className="cardState">
 		      <ul className="cardStateList">
@@ -62,8 +63,10 @@ class ShotItemOverlay extends React.Component {
 
   render() {
     return (
-      <div className="cartItemOverlay">
-        
+      <div className="cartItemOverlay" style={this.props.style}>
+        <div id="header">Header</div>
+        <div id="content">Content</div>
+        <div id="footer">Footer</div>
       </div>
     );
   }
