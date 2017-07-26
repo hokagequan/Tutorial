@@ -64,9 +64,9 @@ class ShotItemOverlay extends React.Component {
   render() {
     return (
       <div className="cartItemOverlay" style={this.props.style}>
-        <div id="header">Header</div>
-        <div id="content">Content</div>
-        <div id="footer">Footer</div>
+        <div className="header">Header</div>
+        <div className="content">Content</div>
+        <div className="footer">Footer</div>
       </div>
     );
   }
